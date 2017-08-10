@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.github.sharygin_vic.orderslesson.web.customer.CustomerEdit"
+        datasource="customerDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.github.sharygin_vic.orderslesson.web.customer">
+    <dsContext>
+        <datasource id="customerDs"
+                    class="com.github.sharygin_vic.orderslesson.entity.Customer"
+                    view="_local"/>
+        <collectionDatasource id="ordersDs"
+                              class="com.github.sharygin_vic.orderslesson.entity.Order"
+                              view="_local">
+            <query>
+                <![CDATA[select o from ordlssn$Order o 
+where o.customer.id = :ds$customerDs 
+order by o.date
+]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="customerDs">
+            <column width="250px">
+                <field property="name"/>
+                <field property="email"/>
+            </column>
+        </fieldGroup>
+        <label value="Orders"/>
+        <table id="ordersTable"
+               height="200px"
+               width="100%">
+            <columns>
+                <column id="date"/>
+                <column id="amount"/>
+            </columns>
+            <rows datasource="ordersDs"/>
+        </table>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<screen-config xmlns="http://schemas.haulmont.com/cuba/screens.xsd">
+    <include file="com/github/sharygin_vic/orderslesson/screens.xml"/>
+    <screen id="ordlssn$Customer.browse"
+            template="com/github/sharygin_vic/orderslesson/web/customer/customer-browse.xml"/>
+    <screen id="ordlssn$Customer.edit"
+            template="com/github/sharygin_vic/orderslesson/web/customer/customer-edit.xml"/>
+    <screen id="ordlssn$Order.browse"
+            template="com/github/sharygin_vic/orderslesson/web/order/order-browse.xml"/>
+    <screen id="ordlssn$Order.edit"
+            template="com/github/sharygin_vic/orderslesson/web/order/order-edit.xml"/>
+</screen-config>
